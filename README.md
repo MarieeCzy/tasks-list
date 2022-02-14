@@ -1,9 +1,9 @@
- ## CSS and JavaScript - classic and digital clock 🕓
+ ## In progress
 
-### Classic clock
 
-![classic clock](Screenshots/classic-clock.png)
 
-### Digital clock 
+![view1](https://github.com/MarieeCzy/tasks-list/blob/main/task%20list/Figma%20design/view1.png?raw=true) 
 
-![digital clock](Screenshots/digital-clock.png)
+
+
+![view2](https://github.com/MarieeCzy/tasks-list/blob/main/task%20list/Figma%20design/view2.png?raw=true)
