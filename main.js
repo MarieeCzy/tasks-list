@@ -1,5 +1,5 @@
-const btnAdd = document.querySelector(".add");
-const taskList = document.querySelector(".tasks-wrapper");
+const btnAdd = document.getElementById("add-button");
+const taskContainer = document.querySelector(".tasks-wrapper");
 
 btnAdd.addEventListener("click", createNewTask);
 
@@ -9,7 +9,7 @@ let imgDone = `<img src="./Img/akar-icons_check-box-filldone.svg" alt="done icon
 
 function createNewTask() {
   let task = document.createElement("div");
-  taskList.appendChild(task);
+  taskContainer.appendChild(task);
   task.classList.add("task");
 
   task.innerHTML = `<div class="task-content">
@@ -17,21 +17,29 @@ function createNewTask() {
 <div class="check-mark">${imgToDo}
 </div>`;
 
-  window.localStorage.setItem("task", JSON.stringify(`${taskContentText}`));
-
-  // let taskContent = document.createElement("div");
-  // task.appendChild(taskContent);
-  // taskContent.classList.add("task-content");
-
-  // let taskContentText = document.createElement("p");
-  // taskContent.appendChild(taskContentText);
-  // taskContentText.classList.add("task-content__text")
-
-  // taskContentText.innerHTML = "New task added to list";
-
-  // let checkMark = document.createElement("div");
-  // task.insertAdjacentElement("beforeend", checkMark)
-
-  // checkMark.classList.add("check-mark");
-  // checkMark.innerHTML = "<img src='./Img/akar-icons_check-box-filldone-btn.svg'>";
+  addTaskToList();
 }
+
+function addTaskToList() {
+  const taskList = document.querySelectorAll(".task");
+  console.log(taskList);
+
+  for (let n = 0; n < taskList.length; n++) {
+    if (taskList.length > 0) {
+      taskList[n].addEventListener("click", taskDone);
+    }
+  }
+}
+
+function taskDone() {
+  let finishedTask = this;
+  finishedTask.firstElementChild.classList.toggle("task-finished");
+
+  if (finishedTask.firstElementChild.classList.contains("task-finished")) {
+    finishedTask.lastElementChild.innerHTML = `${imgDone}`;
+  } else {
+    finishedTask.lastElementChild.innerHTML = `${imgToDo}`;
+  }
+}
+
+// window.localStorage.setItem("task", JSON.stringify(`${taskContentText}`));

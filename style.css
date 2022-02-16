@@ -137,4 +137,11 @@ body {
 }
 
 
+/* task finished */
 
+.task-finished .task-content__text {
+text-decoration: line-through;
+font-weight: 100;
+
+color: hsl(0, 0%, 100%, 0.5);
+}
