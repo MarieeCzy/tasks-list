@@ -9,7 +9,7 @@
 }
 
 html {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 body {
@@ -76,7 +76,7 @@ body {
 
     min-height: 2rem;
 
-    margin: .75rem 1.5rem;
+    margin: .5rem 1.5rem;
 
     color: white;
 
@@ -96,13 +96,32 @@ body {
 }
 
 .task-content__text {
+    width: 90%;
     margin: .5rem;
     padding: .25rem;
 
     font-size: 1rem;
     font-family: var(--font-family);
-    letter-spacing: .1rem;
+    letter-spacing: .2rem;
+
+    color: white;
+    background-color: hsl(224, 93%, 17%);
+    border: none;
+    outline: none;
+
+
 }
+
+/* edit placeholder for inputs using nonstandard selector */
+
+::placeholder {
+
+    font-style: italic;
+
+    color: hsla(0, 0%, 100%, 0.7);
+    opacity: 1;
+}
+
 
 
 .add {
@@ -123,6 +142,13 @@ body {
 
     transition: 1s;
 
+}
+
+.button img {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    /* background-size: contain; */
 }
 
 
