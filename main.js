@@ -1,35 +1,35 @@
 const btnAdd = document.getElementById("add-button");
+const btnDel = document.getElementById(".delete-button");
 const taskContainer = document.querySelector(".tasks-wrapper");
 
-btnAdd.addEventListener("click", createNewTask);
-
 let taskContentText = "Something different";
-let imgToDo = `<img src="./Img/akar-icons_check-box-filldone-btn.svg" alt="done icon">`;
-let imgDone = `<img src="./Img/akar-icons_check-box-filldone.svg" alt="done icon">`;
+const imgDone = `<img src="./Img/akar-icons_check-box-filldone-btn.svg" alt="done icon">`;
+const imgToDo = `<img src="./Img/akar-icons_check-box-filldone.svg" alt="done icon">`;
 
-function createNewTask() {
+let createNewTask = () => {
   let task = document.createElement("div");
   taskContainer.appendChild(task);
   task.classList.add("task");
 
   task.innerHTML = `<div class="task-content">
     <p class="task-content__text">${taskContentText}</p></div>
-<div class="check-mark">${imgToDo}
+<div class="check-mark button">${imgToDo}
 </div>`;
 
   addTaskToList();
-}
+};
 
-function addTaskToList() {
+btnAdd.addEventListener("click", createNewTask);
+
+let addTaskToList = () => {
   const taskList = document.querySelectorAll(".task");
-  console.log(taskList);
 
   for (let n = 0; n < taskList.length; n++) {
     if (taskList.length > 0) {
       taskList[n].addEventListener("click", taskDone);
     }
   }
-}
+};
 
 function taskDone() {
   let finishedTask = this;

@@ -5,6 +5,7 @@
 
 :root {
     --font-family: 'Roboto', sans-serif;
+
 }
 
 html {
@@ -103,7 +104,19 @@ body {
     letter-spacing: .1rem;
 }
 
+
 .add {
+    float: right;
+    margin: 2rem;
+
+    text-align: right;
+
+    transition: 1s;
+
+}
+
+.delete {
+    float: left;
     margin: 2rem;
 
     text-align: right;
@@ -113,35 +126,27 @@ body {
 }
 
 
+
 /* hover and active */
 
-.add :hover {
+.button :hover {
     transform: scale(110%);
     cursor: pointer;
 }
 
-.add :active {
+.button :active {
     transform: scale(90%);
     cursor: pointer;
 
 }
 
-.check-mark :hover {
-    transform: scale(110%);
-    cursor: pointer;
-}
-
-.check-mark :active {
-    transform: scale(90%);
-    cursor: pointer;
-}
 
 
 /* task finished */
 
 .task-finished .task-content__text {
-text-decoration: line-through;
-font-weight: 100;
+    text-decoration: line-through;
+    font-weight: 100;
 
-color: hsl(0, 0%, 100%, 0.5);
+    color: hsl(0, 0%, 100%, 0.5);
 }
