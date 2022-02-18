@@ -1,7 +1,11 @@
 const btnAdd = document.getElementById("add-button");
 const btnDel = document.getElementById("delete-button");
+const btnMenuAdjustOpen = document.querySelector(".adjust-btn");
+const btnMenuAdjustClose = document.querySelector(".close-btn");
+
 const taskToDoContainer = document.querySelector(".tasks-todo-wrapper");
 const taskDoneContainer = document.querySelector(".tasks-done");
+const adjustMenu = document.querySelector(".adjust-menu");
 
 const imgDone = `<img src="./Img/akar-icons_check-box-filldone-btn.svg" alt="done icon">`;
 const imgToDo = `<img src="./Img/akar-icons_check-box-filldone.svg" alt="done icon">`;
@@ -78,4 +82,22 @@ function delAllFinished() {
   for (const el of allToDel) {
     el.parentNode.remove();
   }
+}
+
+//show menu
+
+btnMenuAdjustOpen.addEventListener("click", showMenu);
+
+function showMenu() {
+  adjustMenu.classList.toggle("adjust-menu-active");
+  btnMenuAdjustOpen.style.opacity = "0";
+}
+
+//hide menu
+
+btnMenuAdjustClose.addEventListener("click", closeMenu);
+
+function closeMenu() {
+  adjustMenu.classList.toggle("adjust-menu-active");
+  btnMenuAdjustOpen.style.opacity = "1";
 }
