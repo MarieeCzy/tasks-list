@@ -1,6 +1,7 @@
 const btnAdd = document.getElementById("add-button");
 const btnDel = document.getElementById("delete-button");
-const taskContainer = document.querySelector(".tasks-wrapper");
+const taskToDoContainer = document.querySelector(".tasks-todo-wrapper");
+const taskDoneContainer = document.querySelector(".tasks-done");
 
 const imgDone = `<img src="./Img/akar-icons_check-box-filldone-btn.svg" alt="done icon">`;
 const imgToDo = `<img src="./Img/akar-icons_check-box-filldone.svg" alt="done icon">`;
@@ -12,7 +13,10 @@ const addTaskToList = () => {
 
   for (let n = 0; n < taskList.length; n++) {
     if (taskList.length > 0) {
-      taskList[n].lastElementChild.addEventListener("click", taskDone);
+      taskList[n].lastElementChild.addEventListener(
+        "click",
+        markTaskAsDoneOrToDo
+      );
     }
   }
 };
@@ -21,7 +25,7 @@ const addTaskToList = () => {
 
 const createNewTask = () => {
   const task = document.createElement("div");
-  taskContainer.appendChild(task);
+  taskToDoContainer.appendChild(task);
   task.classList.add("task");
 
   task.innerHTML = `<div class="task-content">
@@ -35,7 +39,7 @@ const createNewTask = () => {
 };
 
 function getFocus() {
-  const lastTask = taskContainer.lastElementChild;
+  const lastTask = taskToDoContainer.lastElementChild;
   const inputActive = lastTask.querySelector(".task-content__text");
   inputActive.focus();
 }
@@ -49,17 +53,19 @@ document.addEventListener("keypress", (e) => {
 
 btnAdd.addEventListener("click", createNewTask);
 
-//mark task as done or to do
+//mark task
 
-function taskDone() {
+function markTaskAsDoneOrToDo() {
   const finishedTask = this.parentNode;
 
   finishedTask.firstElementChild.classList.toggle("task-finished");
 
   if (finishedTask.firstElementChild.classList.contains("task-finished")) {
     finishedTask.lastElementChild.innerHTML = `${imgDone}`;
+    taskDoneContainer.appendChild(finishedTask);
   } else {
     finishedTask.lastElementChild.innerHTML = `${imgToDo}`;
+    taskToDoContainer.appendChild(finishedTask);
   }
 
   btnDel.addEventListener("click", delAllFinished);
